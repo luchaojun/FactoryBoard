@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/workorder/workorder",
+    "pages/task/task",
+    "pages/add/add",
+    "pages/reportwork/reportwork",
+    "pages/board/board"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "FactoryBoard",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/workorder/workorder",
+        "text": "工單",
+        "iconPath": "pages/img/order.png",
+        "selectedIconPath": "pages/img/order_fill.png"
+      },
+      {
+        "pagePath": "pages/task/task",
+        "text": "任務",
+        "iconPath": "pages/img/task.png",
+        "selectedIconPath": "pages/img/task_fill.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "iconPath": "pages/img/plus.png",
+        "selectedIconPath": "pages/img/plus.png"
+      },
+      {
+        "pagePath": "pages/reportwork/reportwork",
+        "text": "報工",
+        "iconPath": "pages/img/baogong.png",
+        "selectedIconPath": "pages/img/baogong_fill.png"
+      },
+      {
+        "pagePath": "pages/board/board",
+        "text": "看板",
+        "iconPath": "pages/img/board.png",
+        "selectedIconPath": "pages/img/board_fill.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

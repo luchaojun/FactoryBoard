@@ -12,35 +12,37 @@
     "navigationBarBackgroundColor": "#ffffff"
   },
   "tabBar": {
+    "selectedColor": "#1afa29",
     "list": [
       {
         "pagePath": "pages/workorder/workorder",
         "text": "工單",
         "iconPath": "pages/img/order.png",
-        "selectedIconPath": "pages/img/order_fill.png"
+        "selectedIconPath": "pages/img/order_selected.png"
       },
       {
         "pagePath": "pages/task/task",
         "text": "任務",
         "iconPath": "pages/img/task.png",
-        "selectedIconPath": "pages/img/task_fill.png"
+        "selectedIconPath": "pages/img/task_selected.png"
       },
       {
         "pagePath": "pages/add/add",
         "iconPath": "pages/img/plus.png",
-        "selectedIconPath": "pages/img/plus.png"
+        "selectedIconPath": "pages/img/plus.png",
+        "iconSize":"81"
       },
       {
         "pagePath": "pages/reportwork/reportwork",
         "text": "報工",
         "iconPath": "pages/img/baogong.png",
-        "selectedIconPath": "pages/img/baogong_fill.png"
+        "selectedIconPath": "pages/img/baogong_selected.png"
       },
       {
         "pagePath": "pages/board/board",
         "text": "看板",
         "iconPath": "pages/img/board.png",
-        "selectedIconPath": "pages/img/board_fill.png"
+        "selectedIconPath": "pages/img/board_selected.png"
       }
     ]
   },

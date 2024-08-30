@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/workorder/workorder",
     "pages/task/task",
+    "pages/workorder/workorder",
     "pages/add/add",
     "pages/reportwork/reportwork",
     "pages/board/board"

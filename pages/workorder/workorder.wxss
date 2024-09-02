@@ -1,16 +1,9 @@
-/* .list{
-  display: flex; 
-  flex-direction:column; 
-  background-color: #D7DBDD;
+.plan_name, .linename{
+  float: left;
+  width: 100rpx;
 }
 
-.items{
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background-color: white;
-  border-radius: 10rpx;
-} */
+.quantity, .linename{
+  float: right;
+  width: 100rpx;
+}

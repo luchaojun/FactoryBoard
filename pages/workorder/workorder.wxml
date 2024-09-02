@@ -1,10 +1,13 @@
 <!--pages/workorder/workorder.wxml-->
 <view class="list" style="display: flex; flex-direction:column; background-color: #D7DBDD">
-  <view class="item" wx:for="{{listData}}" wx:key="item" style="display: flex;flex-direction: column; margin-left: 10px; margin-right: 10px; margin-top: 5px; margin-bottom: 5px; background-color: white;border-radius: 10rpx;">
-      <text class="name">{{item.name}}</text>
-      <text class="content1">{{item.content1}}</text>
-      <text class="content2">{{item.content2}}</text>
-      <text class="content3">{{item.content3}}</text>
-      <text class="content4">{{item.content4}}</text>
+  <view style="background-color: white;">
+    全部
+    <icon></icon>
+  </view>
+  <view class="item" wx:for="{{process}}" wx:key="item" style="display: flex;flex-direction: column; margin-left: 10px; margin-right: 10px; margin-top: 5px; margin-bottom: 5px; background-color: white;border-radius: 10rpx;">
+      <text class="plan_name">{{item[0]}}</text>
+      <text class="linename">{{item[1]}}</text>
+      <text class="quantity">{{item[2]}}</text>
+      <text class="linename">{{item[3]}}</text>
   </view>
 </view>

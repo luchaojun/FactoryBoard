@@ -23,7 +23,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var resultData = this;
+    wx.request({
+      url: 'http://172.16.7.61:500/selAllWorkOrder',
+      method: "GET",
+      success(res){
+        resultData.setData({process: res.data});
+      }
+    });
   },
 
   /**

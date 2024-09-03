@@ -42,14 +42,14 @@ Page({
       cxt_arc.setStrokeStyle('#d2d2d2');//绘线的颜色
       cxt_arc.setLineCap('round');//线条端点样式
       cxt_arc.beginPath();//开始一个新的路径
-      cxt_arc.arc(53, 53, 25, 0, 2 * Math.PI, false);//设置一个原点(53,53)，半径为50的圆的路径到当前路径
+      cxt_arc.arc(53, 53, 50, 0, 2 * Math.PI, false);//设置一个原点(53,53)，半径为50的圆的路径到当前路径
       cxt_arc.stroke();//对当前路径进行描边
       //这部分是蓝色部分
       cxt_arc.setLineWidth(6);
       cxt_arc.setStrokeStyle('#3ea6ff');
       cxt_arc.setLineCap('round')
       cxt_arc.beginPath();//开始一个新的路径
-      cxt_arc.arc(53, 53, 25, -Math.PI * 1 / 2, 2 * Math.PI * (rightItems / totalItems) - Math.PI * 1 / 2, false);
+      cxt_arc.arc(53, 53, 50, -Math.PI * 1 / 2, 2 * Math.PI * (rightItems / totalItems) - Math.PI * 1 / 2, false);
       cxt_arc.stroke();//对当前路径进行描边
       cxt_arc.draw();
   },

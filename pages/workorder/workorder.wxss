@@ -1,3 +1,26 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 320 rpx;
+}
+
+.all {
+  flex: 1;
+  text-align: left;
+  margin-left: 15rpx;
+  margin-top: 10rpx;
+}
+
+.icon{
+  flex: 1;
+  text-align: right;
+  margin-top: 20rpx;
+}
+
+image{
+  margin-left: 15rpx;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -10,26 +33,37 @@
   margin-bottom: 20rpx;
   width: 90%;
   background-color: white;
+  border-radius: 10px;
 }
 
 .task-info {
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-left: 6rpx;
 }
 
-.title {
+.main_content {
   font-size: 40rpx;
   font-weight: bold;
   color: #333;
 }
 
-.author {
+.content{
   font-size: 25rpx;
   color: #666;
 }
 
-.description {
-  font-size: 25rpx;
-  color: #999;
+.progress-circle {
+  position: relative;
+  margin-left: 6rpx;
+}
+
+.percentage {
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-size: 28rpx;
+  color: #333;
 }

@@ -1,13 +1,24 @@
+<view class="header" style="background-color: white; width: 100%; margin-bottom: 20rpx;">
+    <view class="all">全部</view>
+    <view class="icon">
+      <image src="../img/find.png" style="width: 40rpx; height: 40rpx;" bind:tap="findWorkOrders"></image>
+      <image src="../img/sort.png" style="width: 40rpx; height: 40rpx;" bind:tap="sortWorkOrders"></image>
+      <image src="../img/select.png" style="width: 40rpx; height: 40rpx;"
+      bind:tap="selectWorkOrders"></image>
+    </view>
+</view>
+
 <view class="container">
-  <view class="task-item" wx:for="{{tasks}}" wx:key="index">
+  <view class="task-item" wx:for="{{process}}" wx:key="index">
     <view class="task-info">
-      <text class="title">{{item.title}}</text>
-      <text class="author">{{item.author}}</text>
-      <text class="description">{{item.description}}</text>
+      <text class="main_content">制程: {{item.plan_name}}</text>
+      <text class="content">线别: {{item.linename}}</text>
+      <text class="content">制令总数: {{item.QUANTITY}}</text>
+      <text class="content">已生产总数: {{item.PRODUCT_QUANTITY}}</text>
     </view>
     <view class="progress-circle">
       <canvas canvas-id="progressCanvas{{index}}" style="width: 200rpx; height: 200rpx;"></canvas>
-      <view class="centerWord">test</view>
+      <text class="percentage">{{item.progress}}%</text>
     </view>
   </view>
 </view>

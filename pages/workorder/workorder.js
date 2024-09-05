@@ -57,6 +57,15 @@ Page({
     this.setData({process: this.data.process})
   },
 
+  gotoDetailPage:function(event){
+    const index = event.currentTarget.dataset.index;
+    const item = this.data.process[index];
+    const itemData = JSON.stringify(item);
+    wx.navigateTo({
+      url: '/pages/detail/detail?index='+index+'&itemData='+itemData,
+    });
+  },
+
   findWorkOrders:function(event){
     console.log("findWorkOrders");
   },

@@ -1,0 +1,55 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="form-item">
+    <text>製程：</text>
+    <input type="text" value="{{itemData.plan_name}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>線別：</text>
+    <input type="text" value="{{itemData.linename}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>線別名稱：</text>
+    <input type="number"  value="{{itemData.prod_line}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>排程日期：</text>
+    <input type="number"  value="{{itemData.sch_date}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>製令：</text>
+    <input type="number"  value="{{itemData.wip_entity_name}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>製令總數：</text>
+    <input type="number"  value="{{itemData.QUANTITY}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>排程數量：</text>
+    <input type="number" value="{{itemData.SCH_QUANTITY}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>生產總數：</text>
+    <input type="number" value="{{itemData.PRODUCT_QUANTITY}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>排程生產數量：</text>
+    <input type="number" value="{{itemData.PRODUCT_DAY_QUANTITY}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>訂單號：</text>
+    <input type="number" value="{{itemData.SO}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>客戶代碼：</text>
+    <input type="number" value="{{itemData.CUST_CODE}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>創建時間：</text>
+    <input type="number" value="{{itemData.trans_date}}" disabled="true"/>
+  </view>
+  <view class="form-item">
+    <text>更新時間：</text>
+    <input type="number" value="{{itemData. update_date}}" disabled="true"/>
+  </view>
+</view>

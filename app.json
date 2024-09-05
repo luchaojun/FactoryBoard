@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/board/board",
     "pages/workorder/workorder",
     "pages/task/task",
     "pages/add/add",
     "pages/reportwork/reportwork",
-    "pages/board/board"
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -30,7 +31,7 @@
         "pagePath": "pages/add/add",
         "iconPath": "pages/img/plus.png",
         "selectedIconPath": "pages/img/plus.png",
-        "iconSize":"81"
+        "iconSize": "81"
       },
       {
         "pagePath": "pages/reportwork/reportwork",

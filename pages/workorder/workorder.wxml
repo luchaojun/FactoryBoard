@@ -9,7 +9,7 @@
 </view>
 
 <view class="container">
-  <view class="task-item" wx:for="{{process}}" wx:key="index">
+  <view class="task-item" wx:for="{{process}}" wx:key="index" bind:tap="gotoDetailPage" data-index="{{index}}" data-itemData="{{item}}">
     <view class="task-info">
       <text class="main_content">制程: {{item.plan_name}}</text>
       <text class="content">线别: {{item.linename}}</text>

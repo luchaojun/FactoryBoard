@@ -1,1 +1,23 @@
-/* pages/board/board.wxss */
+/* 自定义单选按钮样式 */
+.custom-radio {
+  display: flex;
+  align-items: center;
+}
+
+.custom-radio-circle {
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  margin-right: 5px;
+}
+
+.custom-radio-circle.selected {
+  background-color: #4caf50;
+}
+
+.custom-radio-text {
+  font-size: 14px;
+  color: #333333;
+}

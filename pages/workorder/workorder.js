@@ -14,7 +14,7 @@ Page({
   onLoad(options) {
     var resultData = this;
     wx.request({
-      url: 'http://172.16.7.61:500/selAllWorkOrder',
+      url: 'http://172.16.7.61:500/selAllLinesProductionStatus',
       method: "GET",
       success(res){
         resultData.setData({process: res.data});
@@ -26,7 +26,7 @@ Page({
   drawProgressCircles: function () {
     for (let i = 0; i < this.data.process.length; i++) {
         const task = this.data.process[i];
-        const p = Math.ceil(task["PRODUCT_QUANTITY"] / task["QUANTITY"] * 100);
+        const p = Math.ceil(task["product_quantity"] / task["quantity"] * 100);
         task["progress"] = p;
         const ctx = wx.createCanvasContext('progressCanvas' + i);
         const centerX = 35;
@@ -49,7 +49,7 @@ Page({
         if(p == 100){
           ctx.setStrokeStyle('#0f0');
         }else{
-          ctx.setStrokeStyle('#00f');
+          ctx.setStrokeStyle('#3ea6ff');
         }
         ctx.stroke();
         ctx.draw();
@@ -57,12 +57,11 @@ Page({
     this.setData({process: this.data.process})
   },
 
-  gotoDetailPage:function(event){
+  gotoProductionStagePage:function(event){
     const index = event.currentTarget.dataset.index;
-    const item = this.data.process[index];
-    const itemData = JSON.stringify(item);
+    const prod_line = event.currentTarget.dataset.prod_line;
     wx.navigateTo({
-      url: '/pages/detail/detail?index='+index+'&itemData='+itemData,
+      url: '/pages/production_stages/production_stages?index='+index+'&prod_line='+prod_line,
     });
   },
 

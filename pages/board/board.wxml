@@ -1,11 +1,6 @@
-<view class="custom-radio">
-  <view class="custom-radio-circle" bindtap="onRadioTap" data-value="A" wx:if="{{radioValue === 'A'}}"></view>
-  <view class="custom-radio-circle" bindtap="onRadioTap" data-value="B" wx:if="{{radioValue !== 'A'}}"></view>
-  <text class="custom-radio-text">选项A</text>
-</view>
-
-<view class="custom-radio">
-  <view class="custom-radio-circle" bindtap="onRadioTap" data-value="B" wx:if="{{radioValue === 'B'}}"></view>
-  <view class="custom-radio-circle" bindtap="onRadioTap" data-value="A" wx:if="{{radioValue !== 'B'}}"></view>
-  <text class="custom-radio-text">选项B</text>
+<view class="container">
+    <button class="btn" style="width: 70px; height: 30px; font-size: 11px; padding: 0px;">全部</button>
+    <button class="btn">Assy</button>
+    <button class="btn">Packing</button>
+    <button class="btn">Test</button>
 </view>

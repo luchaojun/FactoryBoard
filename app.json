@@ -5,7 +5,8 @@
     "pages/task/task",
     "pages/add/add",
     "pages/reportwork/reportwork",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/production_stages/production_stages"
   ],
   "window": {
     "navigationBarTextStyle": "black",

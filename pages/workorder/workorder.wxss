@@ -1,7 +1,6 @@
 .header{
   display: flex;
   justify-content: space-between;
-  height: 320 rpx;
 }
 
 .all {
@@ -24,13 +23,16 @@ image{
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 100%;
   background-color: #D7DBDD;
 }
 
 .task-item {
   display: flex;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
   width: 90%;
   background-color: white;
   border-radius: 10px;

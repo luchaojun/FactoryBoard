@@ -5,8 +5,115 @@ Page({
    * 页面的初始数据
    */
   data: {
+    btn_color:[
+      {"name": "全部", "bgcolor": "green", "color": "white", "tap":"allbtn"},
+      {"name": "組立", "bgcolor": "gray", "color": "black", "tap":"assybtn"},
+      {"name": "測試", "bgcolor": "gray", "color": "black", "tap":"testbtn"},
+      {"name": "包裝", "bgcolor": "gray", "color": "black","tap":"packingbtn"},
+    ],
   },
 
+  gotoDetailPage:function(event){
+    console.log("進入到詳情頁面");
+    const index = event.currentTarget.dataset.index;
+    const item = this.data.process_zhiling[index];
+    const itemData = JSON.stringify(item);
+    console.log("進入到詳情頁面");
+    wx.navigateTo({
+      url: '/pages/detail/detail?index='+index+'&itemData='+itemData,
+    });
+  },
+
+  allbtn:function(event){
+    this.data.btn_color[0].color = "white";
+    this.data.btn_color[0].bgcolor = "green";
+    this.data.btn_color[1].color = "black";
+    this.data.btn_color[1].bgcolor = "gray";
+    this.data.btn_color[2].color = "black";
+    this.data.btn_color[2].bgcolor = "gray";
+    this.data.btn_color[3].color = "black";
+    this.data.btn_color[3].bgcolor = "gray";
+    this.setData({btn_color: this.data.btn_color});
+    const t = this;
+
+    wx.request({
+      url: 'http://172.16.7.61:500/selAllDataByProdlineAndPlanname?prod_line='+(Number(this.data.line)),
+      method: 'GET',
+      success(res){
+        console.log(res.data);
+        t.setData({process_zhiling: res.data});
+        t.drawProgressCircles();
+      }
+    });
+  },
+
+  assybtn:function(event){
+    this.data.btn_color[0].color = "black";
+    this.data.btn_color[0].bgcolor = "gray";
+    this.data.btn_color[1].color = "white";
+    this.data.btn_color[1].bgcolor = "green";
+    this.data.btn_color[2].color = "black";
+    this.data.btn_color[2].bgcolor = "gray";
+    this.data.btn_color[3].color = "black";
+    this.data.btn_color[3].bgcolor = "gray";
+    this.setData({btn_color: this.data.btn_color});
+    const t = this;
+
+    wx.request({
+      url: 'http://172.16.7.61:500/selAllDataByProdlineAndPlanname?prod_line='+(Number(this.data.line))+'&plan_name=Assy SCH',
+      method: 'GET',
+      success(res){
+        console.log(res.data);
+        t.setData({process_zhiling: res.data});
+        t.drawProgressCircles();
+      }
+    });
+  },
+
+  testbtn:function(event){
+    this.data.btn_color[0].color = "black";
+    this.data.btn_color[0].bgcolor = "gray";
+    this.data.btn_color[1].color = "black";
+    this.data.btn_color[1].bgcolor = "gray";
+    this.data.btn_color[2].color = "white";
+    this.data.btn_color[2].bgcolor = "green";
+    this.data.btn_color[3].color = "black";
+    this.data.btn_color[3].bgcolor = "gray";
+    this.setData({btn_color: this.data.btn_color});
+    const t = this;
+
+    wx.request({
+      url: 'http://172.16.7.61:500/selAllDataByProdlineAndPlanname?prod_line='+(Number(this.data.line))+'&plan_name=Test',
+      method: 'GET',
+      success(res){
+        console.log(res.data);
+        t.setData({process_zhiling: res.data});
+        t.drawProgressCircles();
+      }
+    });
+  },
+
+  packingbtn:function(event){
+    this.data.btn_color[0].color = "black";
+    this.data.btn_color[0].bgcolor = "gray";
+    this.data.btn_color[1].color = "black";
+    this.data.btn_color[1].bgcolor = "gray";
+    this.data.btn_color[2].color = "black";
+    this.data.btn_color[2].bgcolor = "gray";
+    this.data.btn_color[3].color = "white";
+    this.data.btn_color[3].bgcolor = "green";
+    this.setData({btn_color: this.data.btn_color});
+    const t = this;
+    wx.request({
+      url: 'http://172.16.7.61:500/selAllDataByProdlineAndPlanname?prod_line='+(Number(this.data.line))+'&plan_name=Packing',
+      method: 'GET',
+      success(res){
+        console.log(res.data);
+        t.setData({process_zhiling: res.data});
+        t.drawProgressCircles();
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -14,16 +121,62 @@ Page({
     const prod_line = options.prod_line;
     const line = prod_line.split("-")[1];
     var resultData = this;
-    console.log('http://172.16.7.61:500/selAllActionStatus?prod_line='+(Number(line)));
+    resultData.setData({line: line});
     wx.request({
       url: 'http://172.16.7.61:500/selAllActionStatus?prod_line='+(Number(line)),
       method: "GET",
       success(res){
-        console.log(res.data);
         resultData.setData({tasks: res.data});
         resultData.setCircleTestData();
       }
     });
+
+    wx.request({
+      url: 'http://172.16.7.61:500/selAllDataByProdlineAndPlanname?prod_line='+(Number(line)),
+      method: 'GET',
+      success(res){
+          console.log("selAllDataByProdline");
+          console.log(res.data);
+          resultData.setData({process_zhiling: res.data});
+          resultData.drawProgressCircles();
+      }
+    });
+  },
+
+  drawProgressCircles: function () {
+    for (let i = 0; i < this.data.process_zhiling.length; i++) {
+        const task = this.data.process_zhiling[i];
+        console.log("task")
+        console.log(task);
+        const p = Math.ceil(task["PRODUCT_QUANTITY"] / task["QUANTITY"] * 100);
+        task["progress"] = p;
+        const ctx = wx.createCanvasContext('progressCanvas'+i);
+        const centerX = 35;
+        const centerY = 55;
+        const radius = 30;
+        const startAngle = -Math.PI / 2;
+        const endAngle = (p * Math.PI * 2) / 100 + startAngle;
+  
+        // 绘制进度圆环
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.setLineWidth(4);
+        ctx.setStrokeStyle('#999');
+        ctx.stroke();
+
+        // 绘制进度圆环
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.setLineWidth(4);
+        if(p == 100){
+          ctx.setStrokeStyle('#0f0');
+        }else{
+          ctx.setStrokeStyle('#3ea6ff');
+        }
+        ctx.stroke();
+        ctx.draw();
+    }
+    this.setData({process_zhiling: this.data.process_zhiling})
   },
 
   setCircleTestData:function(){
@@ -64,7 +217,7 @@ Page({
       // 绘制百分比文本
       ctx.setFontSize(16);
       ctx.setFillStyle('black');
-      ctx.fillText(`${(task.product_quantity/task.quantity)*100}%`, x - radius / 2 + 5, y + 5);
+      ctx.fillText(`${Math.ceil((task.product_quantity/task.quantity)*100)}%`, x - radius / 2 + 5, y + 5);
 
       // 绘制任务名称
       ctx.setFontSize(14);

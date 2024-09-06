@@ -1,6 +1,6 @@
 <view class="container">
-    <button class="btn" style="width: 70px; height: 30px; font-size: 11px; padding: 0px;">全部</button>
-    <button class="btn">Assy</button>
-    <button class="btn">Packing</button>
-    <button class="btn">Test</button>
+    <button id="all" class="btn" style="width: 70px; height: 30px; font-size: 11px;background-color: green; color: white;">全部</button>
+    <button id="assy" class="btn" style="width: 70px; height: 30px; font-size: 11px;">Assy</button>
+    <button id="packing" class="btn" style="width: 70px; height: 30px; font-size: 11px;">Packing</button>
+    <button id="Test" class="btn" style="width: 70px; height: 30px; font-size: 11px;">Test</button>
 </view>

@@ -1,5 +1,23 @@
 <!-- pages/index/index.wxml -->
-<view style="width: 100%; height: 100%;">
+<view style="width: 100%;">
   <canvas canvas-id="myCanvas" style="width: 500px; height: 180px;"></canvas>
 </view>
+<view class="container" style="display: flex;flex-direction: row;justify-content: flex-start;">
+    <button class="btn" wx:for="{{btn_color}}" style="width: 70px; height: 30px; font-size: 11px;background-color: {{item.bgcolor}}; color: {{item.color}};" bind:tap="{{item.tap}}">{{item.name}}</button>
+</view>
+
+<view class="resultitem">
+  <view class="task-item" wx:for="{{process_zhiling}}" wx:key="item"   bind:tap="gotoDetailPage" data-index="{{index}}" data-itemData="{{item}}">
+    <view class="task-info">
+      <text class="main_content">製令: {{item.wip_entity_name}}</text>
+      <text class="content">製令總數: {{item.QUANTITY}}</text>
+      <text class="content">已生產總數: {{item.PRODUCT_QUANTITY}}</text>
+    </view>
+    <view class="progress-circle">
+      <canvas canvas-id="progressCanvas{{index}}" style="width: 200rpx; height: 200rpx;"></canvas>
+      <text class="percentage">{{item.progress}}%</text>
+    </view>
+  </view>
+</view>
+
 

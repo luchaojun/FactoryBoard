@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
+    btn_color:[
+      {"name": "123", "bgcolor": "green", "color": "white"},
+      {"name": "456", "bgcolor": "white", "color": "black"}
+    ]
+  },
 
+  test:function(event){
+    console.log("test方法被調用");
+    const box = this.selectComponent('#box');
+    console.log(box); // 打印出按钮对象
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**
